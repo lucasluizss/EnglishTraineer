@@ -2,7 +2,7 @@
   "hosting": [
     {
       "target": "english-trainner",
-      "public": "dist/english-trainner",
+      "public": "dist/english-trainner/browser",
       "ignore": [
         "**/.*"
       ],
