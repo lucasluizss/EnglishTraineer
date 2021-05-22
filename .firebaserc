@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "englishtrainner-3c7ed": {
+      "hosting": {
+        "english-trainner": [
+          "englishtrainner-3c7ed"
+        ]
+      }
+    }
+  }
+}
