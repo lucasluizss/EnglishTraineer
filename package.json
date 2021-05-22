@@ -13,6 +13,7 @@
     "build:ssr": "ng build --prod && ng run english-trainner:server:production",
     "prerender": "ng run english-trainner:prerender",
     "prebuild:ssr": "ngcc",
+    "deploy": "npm run build --prod && npm run build:ssr && firebase deploy",
     "deployGithub": "ng build --prod --base-href /EnglishTrainner/ && angular-cli-ghpages --dir=dist/english-trainner/browser --branch gh-pages"
   },
   "private": true,
