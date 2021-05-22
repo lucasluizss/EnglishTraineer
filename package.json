@@ -13,7 +13,7 @@
     "build:ssr": "ng build --prod && ng run english-trainner:server:production",
     "prerender": "ng run english-trainner:prerender",
     "prebuild:ssr": "ngcc",
-    "deployGithub": "ng build --prod --base-href /EnglishTrainner/ --deploy-url https://lucasluizss.github.io/EnglishTrainner/ && angular-cli-ghpages --dir=dist/english-trainner/browser --branch gh-pages"
+    "deployGithub": "ng build --prod --base-href /EnglishTrainner/ && angular-cli-ghpages --dir=dist/english-trainner/browser --branch gh-pages"
   },
   "private": true,
   "dependencies": {
