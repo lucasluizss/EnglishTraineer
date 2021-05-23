@@ -3,12 +3,12 @@ import { env } from 'process';
 export const environment = {
   production: true,
   firebaseConfig: {
-    apiKey: env.FIREBASE_API_KEY,
-    authDomain: env.FIREBASE_AUTH_DOMAIN,
-    projectId: env.FIREBASE_PROJECT_ID,
-    storageBucket: env.FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: env.FIREBASE_MESSAGING_SENDER_ID,
-    appId: env.FIREBASE_APP_ID,
-    measurementId: env.FIREBASE_MEASUREMENT_ID,
+    apiKey: 'AIzaSyD4XUevKJOAKj3oNb6hNW60Xy-FFXXO5Xg',
+    authDomain: 'englishtrainner-3c7ed.firebaseapp.com',
+    projectId: 'englishtrainner-3c7ed',
+    storageBucket: 'englishtrainner-3c7ed.appspot.com',
+    messagingSenderId: '598199771868',
+    appId: '1:598199771868:web:4e5e789191898d66888a19',
+    measurementId: 'G-T30T56D8Q7',
   },
 };
