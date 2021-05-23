@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
+import { Component } from '@angular/core';
 import { map, shareReplay } from 'rxjs/operators';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
-  selector: 'app-app-nav',
+  selector: 'app-nav',
   templateUrl: './app-nav.component.html',
   styleUrls: ['./app-nav.component.css']
 })
@@ -17,5 +17,4 @@ export class AppNavComponent {
     );
 
   constructor(private breakpointObserver: BreakpointObserver) {}
-
 }
