@@ -47,3 +47,4 @@ Thumbs.db
 
 # Secret Environment files
 .env
+/environment

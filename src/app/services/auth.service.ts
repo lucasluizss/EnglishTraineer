@@ -38,7 +38,7 @@ export class AuthService {
     this.fireBaseAuth.signOut().then(() => {
       this.user.next(null);
       localStorage.clear();
-      this.router.navigate(['/login']);
+      this.router.navigate(['/sign-in']);
     });
   }
 }

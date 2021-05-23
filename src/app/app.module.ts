@@ -16,15 +16,15 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [AppComponent],
   imports: [
     HttpClientModule,
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    LayoutsModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(ROUTES, {
       initialNavigation: 'enabled',
     }),
-    BrowserAnimationsModule,
-    LayoutsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
     }),
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [],
