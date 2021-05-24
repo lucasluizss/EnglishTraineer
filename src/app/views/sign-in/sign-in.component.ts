@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '@services/auth.service';
+import { StorageService } from '@services/storage.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -7,20 +10,46 @@ import { Router } from '@angular/router';
   styleUrls: ['./sign-in.component.css'],
 })
 export class SignInComponent implements OnInit {
-  username: string;
-  password: string;
+  public form = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', Validators.required],
+    remember: [''],
+  });
 
-  constructor(private router: Router) {}
+  constructor(
+    private readonly fb: FormBuilder,
+    private readonly router: Router,
+    private readonly authService: AuthService,
+    private readonly storageService: StorageService
+  ) {}
 
-  ngOnInit() {
-    // this.router.navigate(['user']);
+  ngOnInit(): void {
+    if (!!this.authService.user.value) {
+      this.router.navigate(['home']);
+    }
   }
 
-  onSubmit(): void {
-    if (this.username === 'admin' && this.password === 'admin') {
-      this.router.navigate(['home']);
+  async onSubmit(): Promise<void> {
+    if (this.form.valid) {
+      const { email, password, remember } = this.form.value;
+
+      if (remember) {
+        this.storageService.setSessionItem('remember', {
+          email,
+          password,
+        });
+      } else {
+        this.storageService.removeSessionItem('remember');
+      }
+
+      await this.authService.signIn({ email, password });
+
+      // TODO:: remove it and test
+      if (!!this.authService.user.value) {
+        this.router.navigate(['home']);
+      }
     } else {
-      alert('Invalid credentials');
+      alert(this.form.errors);
     }
   }
 }
