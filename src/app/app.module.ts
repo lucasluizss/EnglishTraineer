@@ -9,14 +9,18 @@ import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { LayoutsModule } from './layouts/layouts.module';
 import { environment } from '../environments/environment';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoaderModule } from './components/loader/loader.module';
+import { LoaderInterceptor } from './components/loader/loader.interceptor';
+import { AppHttpInterceptor } from './app.http.interceptor';
 
 @NgModule({
   bootstrap: [AppComponent],
   declarations: [AppComponent],
   imports: [
-    HttpClientModule,
+    LoaderModule,
     LayoutsModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(ROUTES, {
       initialNavigation: 'enabled',
@@ -27,7 +31,10 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {}

@@ -49,7 +49,11 @@ export class SignInComponent implements OnInit {
         this.router.navigate(['home']);
       }
     } else {
-      alert(this.form.errors);
+      alert(JSON.stringify(this.form.errors));
     }
+  }
+
+  googleSignIn(): void {
+    this.authService.signInWithGoogle();
   }
 }

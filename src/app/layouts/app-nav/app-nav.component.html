@@ -7,7 +7,7 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="(isHandset$ | async) === false"
   >
-    <mat-toolbar>Menu</mat-toolbar>
+    <mat-toolbar>Modules</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item href="#">Link 1</a>
       <a mat-list-item href="#">Link 2</a>
@@ -27,10 +27,11 @@
       </button>
       <span>english-trainner</span>
       <span class="example-spacer"></span>
+      <span>{{ user }}</span>
       <button
         mat-icon-button
         class="example-icon"
-        aria-label="Example icon-button with logout icon"
+        aria-label="Logout icon"
         (click)="logout()"
       >
         <mat-icon>logout</mat-icon>

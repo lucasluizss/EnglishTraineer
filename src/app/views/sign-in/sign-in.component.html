@@ -7,7 +7,7 @@
     <form class="main-form" [formGroup]="form" (ngSubmit)="onSubmit()">
       <mat-card-content>
         <mat-form-field class="main-full-width">
-          <input matInput formControlName="email" placeholder="Email" />
+          <input matInput formControlName="email" type="email" placeholder="Email" />
         </mat-form-field>
 
         <mat-form-field class="main-full-width">
@@ -22,6 +22,10 @@
 
       <button mat-stroked-button color="accent" type="submit" class="btn-block">
         Sign-in
+      </button>
+
+      <button class="mt-15" (click)="googleSignIn()" aria-label="Google sign in">
+        <img src="https://img.icons8.com/plasticine/2x/google-logo.png" width="40" height="40" alt="Google icon">
       </button>
 
       <a mat-button routerLink="/sign-up" class="btn-block">Sign-Up</a>
