@@ -27,6 +27,16 @@ export class SignInComponent implements OnInit {
     if (!!this.authService.user.value) {
       this.router.navigate(['home']);
     }
+
+    const credentials = this.storageService.getSessionItem('remember');
+
+    if (credentials) {
+      this.form.patchValue({
+        email: credentials.email,
+        password: credentials.password,
+        remember: true,
+      });
+    }
   }
 
   async onSubmit(): Promise<void> {
@@ -49,7 +59,7 @@ export class SignInComponent implements OnInit {
         this.router.navigate(['home']);
       }
     } else {
-      alert(JSON.stringify(this.form.errors));
+      alert('Incorrect email or password');
     }
   }
 
